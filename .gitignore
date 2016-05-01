@@ -1,0 +1,10 @@
+bin
+obj
+oneway.cbp
+*.layout
+*.depend
+*.cbp
+*.o
+oneway
+*.out
+*.tar.gz
