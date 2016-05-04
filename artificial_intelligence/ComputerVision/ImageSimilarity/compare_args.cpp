@@ -76,7 +76,6 @@ static bool option_matches(const char *arg, const std::string &option_name)
            (string_arg == "-" + option_name);
 }
 
-
 CompareArgs::CompareArgs()
 {
     verbose_ = false;
@@ -85,6 +84,7 @@ CompareArgs::CompareArgs()
     field_of_view_ = 45.0f;
     gamma_ = 2.2f;
     threshold_pixels_ = 100;
+    threshold = 0.1;
     luminance_ = 100.0f;
     color_factor_ = 1.0f;
     down_sample_ = 0;
@@ -303,6 +303,11 @@ bool CompareArgs::parse_args(const int argc, char **argv)
                                                         image_a_->get_height(),
                                                         output_file_name);
     }
+    const auto w = image_a_->get_width();
+    const auto h = image_a_->get_height();
+    const auto dim = w * h;
+    threshold_pixels_ = int(threshold*dim);
+
     return true;
 }
 

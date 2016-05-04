@@ -59,6 +59,7 @@ public:
 
     // How many pixels different to ignore.
     unsigned int threshold_pixels_;
+    float threshold;
 
     std::string error_string_;
 

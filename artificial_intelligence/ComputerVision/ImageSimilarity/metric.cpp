@@ -397,6 +397,9 @@ bool yee_compare(CompareArgs &args)
 
     const auto different =
         std::to_string(pixels_failed) + " pixels are different\n";
+    
+    const auto different_percentage =
+        std::to_string(float(pixels_failed)/w/h*100) + " percent pixels are different\n";
 
     // Always output image difference if requested.
     if (args.image_difference_)
@@ -412,11 +415,13 @@ bool yee_compare(CompareArgs &args)
     {
         args.error_string_ = "Images are perceptually indistinguishable\n";
         args.error_string_ += different;
+        args.error_string_ += different_percentage;
         return true;
     }
 
     args.error_string_ = "Images are visibly different\n";
     args.error_string_ += different;
+    args.error_string_ += different_percentage;
     if (args.sum_errors_)
     {
         args.error_string_ += error_sum_buff;
