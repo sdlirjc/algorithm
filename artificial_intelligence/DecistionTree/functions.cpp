@@ -81,7 +81,7 @@ vvs pruneTable(vvs &attributeTable, string &colName, string value)
 node* buildDecisionTree(vvs &table, node* nodePtr, vvs &tableInfo)
 {
 	if (tableIsEmpty(table)) {
-		return NULL;
+		return nodePtr;
 	}
 	if (isHomogeneous(table)) {
 		nodePtr->isLeaf = true;
