@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        int m1=num1.size();
+        int m2=num2.size();
+        if (m1==0||m2==0){return "0";};
+        string res(m1+m2+1,'0');
+        reverse(num1.begin(),num1.end());
+        reverse(num2.begin(),num2.end());
+        for(int i=0;i<m1;i++){//bottom line
+            int digit1=num1[i]-'0';
+            int carry=0;
+            for(int j=0;j<m2;j++){//top line
+                int digit2=num2[j]-'0';
+                int exist=res[i+j]-'0';
+                int total=digit1*digit2+carry+exist;
+                res[i+j]=total%10+'0';
+                carry=total/10;
+            }
+            if(carry>0){
+                res[i+m2]=carry+'0';
+            }
+        }
+        reverse(res.begin(),res.end());
+        int start=0;
+        while(res[start]=='0'&&start<res.size()){
+            start++;
+        }
+        if (start==res.size())return "0";
+        return res.substr(start,res.size()-start);
+    }
+};
