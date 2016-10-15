@@ -1,10 +1,10 @@
 bin
 obj
 oneway.cbp
-*.layout
-*.depend
-*.cbp
-*.o
+.layout
+.depend
+.cbp
+.o
 oneway
-*.out
-*.tar.gz
+.out
+.tar.gz
