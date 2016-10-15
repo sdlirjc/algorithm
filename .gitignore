@@ -6,5 +6,5 @@ oneway.cbp
 .cbp
 .o
 oneway
-.out
+*.out
 .tar.gz
