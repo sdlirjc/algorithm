@@ -1,0 +1,7 @@
+
+oneway: oneway.o
+	g++ -I/usr/local/opt/openssl/include -o oneway oneway.o -lssl -lcrypto   
+ 
+oneway.o: oneway.cpp
+	g++ -I/usr/local/opt/openssl/include -Wall -fexceptions -g -c oneway.cpp -o oneway.o
+	
