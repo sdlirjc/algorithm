@@ -25,6 +25,7 @@ mnist_data = input_data.read_data_sets('MNIST_data', one_hot=True)
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(loss)
 with sess.as_default():
     for i in range(100):
+        print i
         batch = mnist_data.train.next_batch(50)
         train_step.run(feed_dict={img: batch[0],
                                   labels: batch[1]})
