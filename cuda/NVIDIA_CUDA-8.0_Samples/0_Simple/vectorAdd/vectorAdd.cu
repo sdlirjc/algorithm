@@ -41,26 +41,26 @@ vectorAdd(const float *A, const float *B, float *C, int numElements)
        we will store a random state for every thread  */
     curandState_t state;
 
+    int i = blockDim.x * blockIdx.x + threadIdx.x;
+    //printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
+
     /* we have to initialize the state */
-    curand_init(clock64(), /* the seed controls the sequence of random values that are produced */
+    //curand_init(clock64()+i, /* the seed controls the sequence of random values that are produced */
+    curand_init(clock64()*100000+i, /* the seed controls the sequence of random values that are produced */
             0, /* the sequence number is only important with multiple cores */
             0, /* the offset is how much extra we advance in the sequence for each call, can be 0 */
             &state);
-    curand(&state);
-
-    int i = blockDim.x * blockIdx.x + threadIdx.x;
-    //printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
 
     if (i < numElements)
     {
         //printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
         //C[i] = A[i] + B[i];
-        for (int j=0;j<1;j++){
+        for (int j=0;j<100;j++){
             /* curand works like rand - except that it takes a state as a parameter */
-            double a = curand(&state) / RAND_MAX;
-            double b = curand(&state) / RAND_MAX;
-            //C[i] = a;//log(a/b);
-            C[i] = log((A[i]+0.0)/(B[i]+0.0));
+            double a = float(curand(&state)) / RAND_MAX;
+            double b = float(curand(&state)) / RAND_MAX;
+            C[i] = log(a/b);
+            //C[i] = log((A[i]+0.0)/(B[i]+0.0));
         }
     }
 }
