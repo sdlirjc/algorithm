@@ -53,7 +53,7 @@ vectorAdd(const float *A, const float *B, float *C, int numElements)
 
     if (i < numElements)
     {
-        //printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
+        printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
         //C[i] = A[i] + B[i];
         for (int j=0;j<100;j++){
             /* curand works like rand - except that it takes a state as a parameter */
