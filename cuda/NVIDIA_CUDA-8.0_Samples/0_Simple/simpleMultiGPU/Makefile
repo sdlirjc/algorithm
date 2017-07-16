@@ -210,7 +210,7 @@ LIBRARIES :=
 ################################################################################
 
 # Gencode arguments
-SMS ?= 30 35 37 50 52 60
+SMS ?= 20 30 35 37 50 52 60
 
 ifeq ($(SMS),)
 $(info >>> WARNING - no SM architectures have been specified - waiving sample <<<)
@@ -237,7 +237,7 @@ endif
 # Target rules
 all: build
 
-build: vectorAdd
+build: simpleMultiGPU
 
 check.deps:
 ifeq ($(SAMPLE_ENABLED),0)
@@ -246,19 +246,19 @@ else
 	@echo "Sample is ready - all dependencies have been met"
 endif
 
-vectorAdd.o:vectorAdd.cu
+simpleMultiGPU.o:simpleMultiGPU.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-vectorAdd: vectorAdd.o
+simpleMultiGPU: simpleMultiGPU.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
 	$(EXEC) mkdir -p ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 	$(EXEC) cp $@ ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 
 run: build
-	$(EXEC) ./vectorAdd
+	$(EXEC) ./simpleMultiGPU
 
 clean:
-	rm -f vectorAdd vectorAdd.o
-	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/vectorAdd
+	rm -f simpleMultiGPU simpleMultiGPU.o
+	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/simpleMultiGPU
 
 clobber: clean
