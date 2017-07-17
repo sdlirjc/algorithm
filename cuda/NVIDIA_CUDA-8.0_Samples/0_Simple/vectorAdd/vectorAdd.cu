@@ -53,9 +53,9 @@ vectorAdd(const float *A, const float *B, float *C, int numElements)
 
     if (i < numElements)
     {
-        printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
+        //printf("Hello from block %d, thread %d\n", blockIdx.x, threadIdx.x);
         //C[i] = A[i] + B[i];
-        for (int j=0;j<100;j++){
+        for (int j=0;j<1E5;j++){
             /* curand works like rand - except that it takes a state as a parameter */
             double a = float(curand(&state)) / RAND_MAX;
             double b = float(curand(&state)) / RAND_MAX;
@@ -76,9 +76,10 @@ main(void)
 
     // Print the vector length to be used, and compute its size
     // DEBUG:
-    int numElements = 1E6;
+    int numElements = 4E7;
     size_t size = numElements * sizeof(float);
     printf("[Vector addition of %d elements]\n", numElements);
+    printf("size : %f MB \n", float(size)/1E6);
 
     // Allocate the host input vector A
     float *h_A = (float *)malloc(size);
@@ -154,7 +155,7 @@ main(void)
     }
 
     // Launch the Vector Add CUDA Kernel
-    int threadsPerBlock = 256;
+    int threadsPerBlock = 1024;
     int blocksPerGrid =(numElements + threadsPerBlock - 1) / threadsPerBlock;
     printf("CUDA kernel launch with %d blocks of %d threads\n", blocksPerGrid, threadsPerBlock);
     vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, numElements);

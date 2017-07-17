@@ -1,6 +1,7 @@
 import numpy as np
 from pylab import imshow, show
 from timeit import default_timer as timer
+
 def mandel(x, y, max_iters):
   """
     Given the real and imaginary parts of a complex number,
@@ -15,6 +16,7 @@ def mandel(x, y, max_iters):
       return i
 
   return max_iters
+
 def create_fractal(min_x, max_x, min_y, max_y, image, iters):
   height = image.shape[0]
   width = image.shape[1]
