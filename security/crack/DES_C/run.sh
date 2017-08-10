@@ -1,6 +1,0 @@
-for i in {1..10}
-do
-    echo $i
-    ./crack 12 $i 8FTJk0-bnX8ATMSDIZShh7X0Gidvfwj3u9giVisHdZQiK7Sj06Q9Xt2Jqw0Ll3-HwpGKh1hE1plM4FpfOumWcVNRlagx8yD-4W2Vzhewoj_PN2kNAynjdY2GLvEQs1YAPlOdKBY2NXz0uP9r5ZLgx6Re8rZkRRw4UQFjp-Z3AWB5di24-fXBFLl4M5EStMayK8h_JkSLW3gUdG4L8iXcZVFAmuYeyCoy8sAmDQITR3NbGiMy3TU9TYnnMQ1sAUIC
-done
-
