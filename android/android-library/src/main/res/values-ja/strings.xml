@@ -1,0 +1,62 @@
+<resources>
+    <!--OpenFileDialog-->
+    <string name="filedialog_rename">名前を変更</string>
+    <string name="filedialog_delete">削除</string>
+    <string name="filedialog_newfolder">新しいフォルダー</string>
+    <string name="filedialog_foldername">フォルダー名</string>
+    <string name="filedialog_unablecreatefolder">フォルダーを作成できません: \'%1$s\'</string>
+    <string name="filedialog_foldercreated">フォルダー \'%1$s\' を作成しました</string>
+    <string name="filedialog_folderdeleted">削除しました: \'%1$s\'</string>
+    <string name="filedialog_renameto">名前を変更しました: \'%1$s\'</string>
+    <string name="filedialog_empty">空のリスト</string>
+    <string name="filedialog_readonly">読み取り専用ディレクトリー</string>
+    <string name="filedialog_selectfolder">フォルダーを選択してください</string>
+
+    <string name="ShareAction">共有</string>
+    <string name="shared_via">"%1$s で共有しました"</string>
+
+    <plurals name="days">
+        <item quantity="one">%d 日</item>
+        <item quantity="other">%d 日</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%d 時間</item>
+        <item quantity="other">%d 時間</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">%d 分</item>
+        <item quantity="other">%d 分</item>
+    </plurals>
+
+    <plurals name="seconds">
+        <item quantity="one">%d 秒</item>
+        <item quantity="other">%d 秒</item>
+    </plurals>
+
+    <string name="days_symbol">"d"</string>
+
+    <string name="size_gb">%1$.1f GB</string>
+    <string name="size_mb">%1$.1f MB</string>
+    <string name="size_kb">%1$.1f kb</string>
+    <string name="optimization_dialog">最適化設定</string>
+    <string name="optimization_message">アプリケーションがメモリから削除されないように、電話のバッテリー管理ホワイトリストにアプリケーションを追加することを検討してください。</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_about">About</string>
+    <string name="open_browser">Open Browser</string>
+    <string name="are_you_sure">よろしいですか ?</string>
+    <string name="default_folder">Default</string>
+    <string name="not_permitted">許可されていません</string>
+    <string name="close">Close</string>
+
+    <string-array name="screen_lock_text">
+        <item>System Default</item>
+        <item>Keep On</item>
+        <item>Off after 30 sec</item>
+        <item>Off after 1 min</item>
+        <item>Off after 5 min</item>
+        <item>Off after 30 min</item>
+    </string-array>
+    <string name="pref_screenlock_title">Keep Screen On</string>
+</resources>
